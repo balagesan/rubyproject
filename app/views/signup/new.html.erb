@@ -1,0 +1,22 @@
+<h1>Signup</h1>
+
+<%= form_for @signup, url: signup_show_path, html: { method: :get } do |f| %>
+  <p>
+  <label>Username</label><br>
+  <%= f.text_field :username %>
+</p>
+<p>
+  <label>Password</label><br>
+  <%= f.password_field :password %>
+</p>
+
+<p>
+  <label>Confirm Password</label><br>
+  <%= f.password_field :confirmpwd %>
+</p>
+<br>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>User</h1>
+				<h3>Login</h3>
+
+ <%= form_tag(user_index_path, :method => "get", id: "login") do |f| %>
+ <label>Username</label>
+ <%= text_field_tag :username, params[:username], placeholder: "Username" %><br>
+ <label>Password</label>
+ <%= password_field_tag :password, params[:password], placeholder: "Password" %><br>
+ <%= submit_tag "Login" %>
+ <% end %>

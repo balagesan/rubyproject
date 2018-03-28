@@ -1,0 +1,11 @@
+<h1>User</h1>
+				<h3>Login</h3>
+
+ <%= form_tag(user_loginpage_path ) do %>
+ <label>Username</label>
+  <input type="text" name="username" placeholder="username" /><br>
+  <label>Password</label>
+  <input type="password" name="password" placeholder="password" /><br>
+  <input type="submit" value="Sign In" />
+  <a href="/user/signup" class="btn btn-info" role="button">Signup</a>
+<% end %>

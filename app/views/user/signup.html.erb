@@ -1,0 +1,15 @@
+<h1>Signup</h1>
+
+
+<%= form_tag(user_signuppage_path) do %>
+  <label>Username</label>
+  <input type="text" name="username" placeholder="username" /><br>
+  <label>Email</label>
+  <input type="text" name="email" placeholder="email" /><br>
+  <label>Password</label>
+  <input type="password" name="password" placeholder="password" /><br>
+  <label>Confirm</label>
+  <input type="password" name="confirmpwd" placeholder="Confirm Password" /><br>
+  <input type="submit" value="Sign up" />
+  <a href="/user/login" class="btn btn-info" role="button">Login</a>
+<% end %>
