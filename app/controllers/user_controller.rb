@@ -25,15 +25,21 @@ class UserController < ApplicationController
   def loginpage
     @user = User.find_by(username: params[:username])
     Rails.logger.debug "loginpage: #{@user.inspect}"
-    if !@user
-      message = "This user doesn't exist!"
-    elsif @user.password != params[:password]
-      message = "Your password's wrong!"
+    # if !@user
+    #   flash[:notice] = "This user doesn't exist!"
+    # elsif @user.password != params[:password]
+    #   flash[:notice] = "Your password's wrong!"
+    # else
+    #   flash[:notice] = "You're signed in, #{@user.username}!"
+    # end
+
+    if !@user.blank? && params[:password] == @user.password
+       redirect_to action: :logout
     else
-      message = "You're signed in, #{@user.username}!"
+      render action: login
     end
-    puts message
-    redirect_to action: :logout
+
+    
   end
 
 

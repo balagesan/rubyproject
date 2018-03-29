@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'registrations/new'
+  post 'registrations/signup'
+  get 'sessions/new'
+  post 'sessions/authenticate'
+  get 'sessions/landing_page'
+
+  root 'sessions#new'
   get 'user/index'
 
   # get 'signup/index',to:"signup#index"
@@ -6,12 +13,12 @@ Rails.application.routes.draw do
   # post 'signup',to: "signup#create"
   # get 'signup/show',to: "signup#show"
   resources :users
-    get 'user/signup'
-    post 'user/signuppage'
-    get 'user/login'
-    post 'user/loginpage'
-    get 'user/logout'
-    root 'user#login'
+    # get 'user/signup'
+    # post 'user/signuppage'
+    # get 'user/login'
+    # post 'user/loginpage'
+    # get 'user/logout'
+    # root 'user#login'
   # get "signup", to: "signup#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
