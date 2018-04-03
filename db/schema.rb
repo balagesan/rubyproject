@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328133320) do
+ActiveRecord::Schema.define(version: 20180329120347) do
 
   create_table "signups", force: :cascade do |t|
     t.string   "username"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20180328133320) do
     t.string   "username"
     t.string   "password"
     t.string   "confirmpwd"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "email"
+    t.boolean  "email_confirmed", default: false
+    t.string   "confirm_token"
   end
 
 end

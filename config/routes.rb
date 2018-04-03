@@ -4,15 +4,19 @@ Rails.application.routes.draw do
   get 'sessions/new'
   post 'sessions/authenticate'
   get 'sessions/landing_page'
-
   root 'sessions#new'
-  get 'user/index'
+  get 'sessions/new'
 
   # get 'signup/index',to:"signup#index"
   # get 'signup/new', to:"signup#new"
   # post 'signup',to: "signup#create"
   # get 'signup/show',to: "signup#show"
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+  
     # get 'user/signup'
     # post 'user/signuppage'
     # get 'user/login'

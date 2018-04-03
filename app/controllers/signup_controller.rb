@@ -1,12 +1,10 @@
 class SignupController < ApplicationController
   def index
     @signup = Signup.all
-    puts "===========ggg======>",@signup
   end
 
   def new
   	@signup = Signup.new
-  	puts "=================>",@signup
   end
 
   def show
