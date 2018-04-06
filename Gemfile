@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+gem 'faker'
+# gem 'factory_bot_rails'
+gem 'rspec-rails'
 gem 'has_secure_token'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
@@ -35,6 +37,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'capybara', '2.7.1'
+  gem 'database_cleaner', '1.6.1'
+  gem 'factory_bot_rails'
+  gem 'launchy', '2.4.3'
+  gem 'selenium-webdriver', '2.53.4'
+  gem 'timecop', '0.8.1'
+  gem 'vcr'
+  gem 'yaml_db', '0.4.0'
+  # gem 'mailcatcher', '0.5.11'
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
