@@ -1,28 +1,36 @@
 Rails.application.routes.draw do
+  resources :clients
+  # get 'client/new'
+  # get 'client/additional_contact'
+  # post 'client/create'
+  get 'clients/success'
   get 'registrations/new'
   post 'registrations/signup'
   get 'sessions/new'
   post 'sessions/authenticate'
   get 'sessions/landing_page'
-  root 'sessions#new'
+  
+#  root 'sessions#new'
+  root 'clients#index'
   get 'sessions/new'
+
 
   # get 'signup/index',to:"signup#index"
   # get 'signup/new', to:"signup#new"
   # post 'signup',to: "signup#create"
   # get 'signup/show',to: "signup#show"
-  resources :users do
-    member do
-      get :confirm_email
-    end
-  end
-  
-    # get 'user/signup'
-    # post 'user/signuppage'
-    # get 'user/login'
-    # post 'user/loginpage'
-    # get 'user/logout'
-    # root 'user#login'
+  # resources :users do
+  #   member do
+  #     get :confirm_emails
+  #   end
+  # end
+
+  # get 'user/signup'
+  # post 'user/signuppage'
+  # get 'user/login'
+  # post 'user/loginpage'
+  # get 'user/logout'
+  # root 'user#login'
   # get "signup", to: "signup#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

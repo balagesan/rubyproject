@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery_nested_form
+
+
+// function show_back(elements) {
+// 	  console.log(elements);
+
+//   alert("See Me")
+//   var s =  document.getElementById('contacts_div');
+  
+//   if (s.style== 'none') {
+//     s.style.display = 'block';
+// } 
+// else{
+//      s.style.display = 'block';
+// } 
+// }
+
+
+$(document).ready(function(){
+	// additional contacts button click
+    $('#contacts_expand').click(function(){
+      $('#contacts_div').toggle();
+    });
+
+    //details button click 
+    $('#details_expand').click(function(){
+      $('#details_div').toggle();
+    });
+  });
