@@ -1,0 +1,14 @@
+<h1>User</h1>
+				<h3>Login</h3>
+<% flash.each do |key, value| %>
+<%= content_tag(:div, value, :class => "flash #{key}") %>
+<% flash.clear %>
+<% end %>
+<%= form_tag(sessions_authenticate_path) do %>  
+ <%= label_tag(:username) %>
+ <%= text_field_tag :username, params[:username], placeholder: "Username" %><br>
+ <%= label_tag(:password) %>
+ <%= password_field_tag :password, params[:password], placeholder: "Password" %><br>
+  <%= submit_tag("Login") %>  
+  <%= link_to 'Signup', registrations_new_path %>
+<% end %>

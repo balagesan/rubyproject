@@ -1,0 +1,34 @@
+<h1>Signup</h1>
+<!-- <p id="notice"><%= notice %></p> -->
+<% flash.each do |key, value| %>
+<%= content_tag(:div, value[0], :class => "flash #{key[0]}") %>
+<% flash.clear %>
+<% end %>
+<%= form_tag(registrations_signup_path) do %>
+<div class="field form-group">
+<%= label_tag(:username) %>
+<div class="col-sm-10">
+<%= text_field_tag :username, params[:username], placeholder: "Username" %>
+</div>
+</div>
+<div class="field form-group">
+<%= label_tag(:email) %>
+<div class="col-sm-10">
+<%= text_field_tag :email, params[:email], placeholder: "Email" %>
+</div>
+</div>
+<div class="field form-group">
+<%= label_tag(:password) %>
+<div class="col-sm-10">
+<%= password_field_tag :password, params[:password], placeholder: "Password" %>
+</div>
+</div>
+<div class="field form-group">
+<%= label_tag(:confirm) %>
+<div class="col-sm-10">
+<%= password_field_tag :confirmpwd,params[:confirmpwd],placeholder:"Password" %>
+</div>
+</div><br/>
+<%= submit_tag("Signup")%>
+<%= link_to 'Login', sessions_new_path %>
+<% end %>
