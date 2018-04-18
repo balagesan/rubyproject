@@ -1,0 +1,125 @@
+<div class="div_container">
+<h1>Organization</h1>
+<% @client.errors.each do |attr, msg| %>
+<%= "#{attr} #{msg}" if @client.errors[attr].first == msg %> 
+<ul>
+ <li><%= msg %></li>
+</ul>
+<% end %>  
+  <%= nested_form_for @client do |f| %> 
+  <div class="fields"> 
+    <div class="field_row">
+    <div class="label_field left single">Organization name</div>
+    <div class="large_field"> <%= f.text_field :organization_name %></div>
+  </div><br/><br/>
+ <div class="fields"> 
+    <div class="field_left">
+    <div class="label_field left single">Email</div>
+    <div class="medium_field"><%= f.text_field :email %> </div>
+  </div>
+  <div class="field_right">
+    <div class="label_field left single">Business phone</div>
+    <div class="medium_field"><%= f.text_field :business_phone %></div>
+  </div>
+    </div><br/><br/><br/>
+  <div class="fields"> 
+    <div class="field_left">
+    <div class="label_field left single">Firstname</div>
+    <div class="medium_field"><%= f.text_field :firstname %></div>
+  </div>
+  <div class="field_right">
+    <div class="label_field left single">Lastname</div>
+    <div class="medium_field"><%= f.text_field :lastname %></div>
+  </div>
+  </div><br/><br/><br/>
+  <div class="field_row">
+    <div class="label_field left single">Mobile</div>
+    <div class="medium_field"><%= f.text_field :mobile %></div>
+  </div>
+  <div class="field_row">
+    <div class="label_field left single">Available credit</div>
+    <div class="medium_field"><%= f.text_field :available_credit_amount %></div>
+  </div>
+  <div class="field_row">
+    <div class="label_field left single">Company:</div>
+    <div class="medium_field"><%= f.text_field :company %></div>
+  </div>
+  <br/>
+  <a id="contacts_expand" class="button default ok">Additional Contacts(click to expand)</a> 
+  <div id="contacts_div" class="hidden">
+  <%= f.fields_for :client_contacts do |c| %>
+    <div class="field_row">
+      <div class="label_field left single">Email</div>
+      <div class="medium_field"><%= c.text_field :contact_email %></div>
+      <div class="label_field right">Phone</div>
+      <div class="small_field"><%= c.text_field :contact_phone %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Name</div>
+      <div class="medium_field"><%= c.text_field :contact_name %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Mobile</div>
+      <div class="medium_field"><%= c.text_field :contact_mobile %></div>
+    </div>
+    <%= c.link_to_remove "Remove this contacts" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a contacts", :client_contacts %></p>
+  </div>
+  <br/>
+  <a id="details_expand" class="button default ok">Details (click to expand)</a>
+  <div id="details_div" class="hidden">
+    <div class="field_row">
+      <div class="label_field left single">Country</div>
+      <div class="medium_field"><%= f.select :country, COUNTRY_LIST, {:prompt => ""}, {"data-placeholder" => "Select a country", :class => "medium chzn-select"} %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Currency</div>
+      <div class="medium_field"><%= f.text_field :currency %></div>
+    </div>
+
+    <div class="field_row">
+      <div class="label_field left single">street1</div>
+      <div class="medium_field"><%= f.text_field :street_first %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">street2</div>
+      <div class="medium_field"><%= f.text_field :street_second %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">City</div>
+      <div class="medium_field"><%= f.text_field :city %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">State</div>
+      <div class="medium_field"><%= f.text_field :state %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Pincode</div>
+      <div class="medium_field"><%= f.text_field :pincode %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Industry</div>
+      <div class="medium_field"><%= f.select :industry, INDUSTRY_LIST, {:prompt => ""}, {"data-placeholder" => "Select an industry", :class => "medium chzn-select"} %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Company Size</div>
+      <div class="medium_field"><%= f.select :companysize, COMPANY_SIZE, {:prompt => ""}, {"data-placeholder" => "select company size", :class => "medium chzn-select"} %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Fax</div>
+      <div class="medium_field"><%= f.text_field :fax %></div>
+    </div>
+    <div class="field_row">
+      <div class="label_field left single">Internal notes</div>
+      <div class="medium_field"><%= f.text_area :internal_notes %>
+    </div>
+  </div>
+  </div>
+  </div><br/>
+  <div class="content_bottom">
+    <%= f.submit %>
+    <%= link_to 'Back', clients_path %>
+  </div>
+  <% end %>
+</div>

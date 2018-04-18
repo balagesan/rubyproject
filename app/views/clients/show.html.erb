@@ -1,0 +1,98 @@
+<div class="div_container">
+<h1>Show Client</h1>
+
+<p>
+  <strong>Organization_name</strong>
+  <%= @client.organization_name %>
+</p>
+<p>
+  <strong>Business phone:</strong>
+  <%= @client.business_phone %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+<p>
+  <strong>Contact:</strong>
+  <%= @client.firstname %><%= @client.lastname %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <%= @client.mobile %>
+</p>
+<p>
+  <strong>Available credit:</strong>
+  <%= @client.available_credit_amount %>
+</p>
+<p>
+  <strong>company:</strong>
+  <%= @client.company %>
+</p>
+<% @client.client_contacts.each do |contact| %>
+<p>
+  <strong>Contact Email:</strong>
+  <%= contact.contact_email %>
+</p>
+<p>
+  <strong>Contact Phone:</strong>
+  <%= contact.contact_phone %>
+</p>
+<p>
+  <strong>Contact Name:</strong>
+  <%= contact.contact_name %>
+</p>
+
+<p>
+  <strong>Contact Mobile:</strong>
+  <%= contact.contact_mobile %>
+</p>
+
+<% end %>
+<p>
+  <strong>Country:</strong>
+  <%= @client.country %>
+</p>
+<p>
+  <strong>Currency:</strong>
+  <%= @client.currency %>
+</p>
+<p>
+  <strong>Street1:</strong>
+  <%= @client.street_first %>
+</p>
+<p>
+  <strong>Street2:</strong>
+  <%= @client.street_second %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @client.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @client.state %>
+</p>
+<p>
+  <strong>Pincode:</strong>
+  <%= @client.pincode %>
+</p>
+<p>
+  <strong>Industry:</strong>
+  <%= @client.industry %>
+</p>
+<p>
+  <strong>Company size:</strong>
+  <%= @client.companysize %>
+</p>
+<p>
+  <strong>Fax:</strong>
+  <%= @client.fax %>
+</p>
+<p>
+  <strong>Internal notes:</strong>
+  <%= @client.internal_notes %>
+</p>
+<%= link_to 'Edit', edit_client_path(@client) %>
+<%= link_to 'Back', clients_path %>
+</div>

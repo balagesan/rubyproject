@@ -1,0 +1,39 @@
+<h1>Clients</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th style="color:blue;">Organization</th>
+      <th style="color:blue;">Contact</th>
+      <th style="color:blue;">Email</th>
+      <th style="color:blue;">Phone</th>
+      <th style="color:blue;">Available Credit</th>
+      <th style="color:blue;"colspan="3">Actions</th>
+      <th style="color:blue;"colspan="4">Contacts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client.each do |client| %>
+      <tr>
+        <td><%= client.organization_name %></td>
+        <td><%= client.firstname %> <%= client.lastname %></td>
+        <td><%= client.email %></td>
+        <td><%= client.business_phone %></td>
+        <td><%= client.available_credit_amount %></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+       <% client.client_contacts.each do |contact| %>
+        <tr><td><%= contact.contact_email %></td>
+        <td><%= contact.contact_phone %></td>
+        <td><%= contact.contact_name %></td>
+        <td><%= contact.contact_mobile %></td></tr>
+        <% end %>
+    <% end %> 
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client', new_client_path %>

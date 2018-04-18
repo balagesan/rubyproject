@@ -1,0 +1,32 @@
+<!-- <div class="field_row">
+<div class="label_field left single">Email</div>
+<div class="medium_field"><%= text_field_tag :email, params[:email] %></div>
+<div class="label_field right">Phone</div>
+<div class="small_field"><%= text_field_tag :phone, params[:phone] %></div>
+</div>
+<div class="field_row">
+<div class="label_field left single">Name</div>
+<div class="medium_field"><%= text_field_tag :name, params[:name] %></div>
+</div>
+<div class="field_row">
+<div class="label_field left single">Mobile</div>
+<div class="medium_field"><%= text_field_tag :mobile, params[:mobile]%></div>
+</div>
+ -->
+
+<%= fields_for :client_contacts do |s| %>
+<div class="field_row">
+<div class="label_field left single">Email</div>
+<div class="medium_field"><%= s.text_field :contact_email %></div>
+<div class="label_field right">Phone</div>
+<div class="small_field"><%= s.text_field :contact_phone %></div>
+</div>
+<div class="field_row">
+<div class="label_field left single">Name</div>
+<div class="medium_field"><%= s.text_field :contact_name %></div>
+</div>
+<div class="field_row">
+<div class="label_field left single">Mobile</div>
+<div class="medium_field"><%= s.text_field :contact_mobile %></div>
+</div>
+<% end %>
