@@ -9,11 +9,21 @@ Rails.application.routes.draw do
   get 'sessions/new'
   post 'sessions/authenticate'
   get 'sessions/landing_page'
-  
 #  root 'sessions#new'
   root 'clients#index'
   get 'sessions/new'
 
+  # namespace :api do
+  #   resources :index
+  # end
+
+  namespace :api do
+    namespace :v1 do
+      resources :clients
+    end
+  end
+
+  mount API => '/'
 
   # get 'signup/index',to:"signup#index"
   # get 'signup/new', to:"signup#new"

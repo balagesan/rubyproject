@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-
+gem "grape"
+gem 'mustermann-strscan', '0.4.0'
+gem 'active_model_serializers', '~> 0.10.0.rc2'
+gem 'json', '1.8.6'
 gem "nested_form"
 gem 'faker'
 gem 'haml_lint', require: false
